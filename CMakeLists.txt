@@ -2,8 +2,8 @@
 # CMake project file for HAZ UHS_Deagg
 
 cmake_minimum_required (VERSION 2.8.12)
+project (haz-uhs-deagg)
 enable_language (Fortran)
-project (haz-uhs-deagg LANGUAGES Fortran)
 
 option(STATIC "Enable static linking for binary distribution")
 
