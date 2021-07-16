@@ -2,7 +2,7 @@
 # CMake project file for HAZ UHS_Deagg
 
 cmake_minimum_required (VERSION 2.8.12)
-project (haz-uhs-deagg)
+project (haz-uhs-disagg)
 enable_language (Fortran)
 
 option(STATIC "Enable static linking for binary distribution")
@@ -48,7 +48,7 @@ message ("--> CMAKE_Fortran_FLAGS: " ${CMAKE_Fortran_FLAGS})
 
 # build executables
 file (GLOB SOURCES CONFIGURE_DEPENDS src/*.f)
-set (TARGET "haz-uhs-deagg")
+set (TARGET "haz-uhs-disagg")
 
 add_executable (${TARGET} ${SOURCES})
 set_target_properties(${TARGET} PROPERTIES LINKER_LANGUAGE Fortran)
