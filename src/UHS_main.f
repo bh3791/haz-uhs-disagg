@@ -44,7 +44,7 @@ C     Version 45.2 (8/2016)
       open (15,file=file1,status='old')
 
       write (*,*) 'Enter the output filename.'
-      read (15,*) fileout
+      read (15,'(a80)') fileout
       open (25,file=fileout,status='unknown')
       write (25,*) ' *** Output file from program UHS_deagg  *** '
       write (25,*) '              *** Version 45.2 ***           '
