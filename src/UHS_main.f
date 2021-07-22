@@ -5,7 +5,7 @@ C the equal deaggregation results for a given suite of PSHA runs.
 C This version is compatible with the output files from Haz45
 c which only outputs the mean hazard code combined over all attenuation models. 
 
-C     Version 45.2 (8/2016)
+C     Version 45.3 (7/2021)
 
       implicit none
       include 'max_dims.H'
@@ -35,8 +35,8 @@ C     Version 45.2 (8/2016)
 
       write (*,*) '********************************'
       write (*,*) '*        UHS_Deagg Code        *'
-      write (*,*) '*         Release 45.2         *'
-      write (*,*) '*      Tagged Jan 3, 2017      *'
+      write (*,*) '*         Release 45.3         *'
+      write (*,*) '*      Tagged July 21, 2021    *'
       write (*,*) '********************************'
 
       write (*,'( 2x,''Enter run file'')')
@@ -47,7 +47,7 @@ C     Version 45.2 (8/2016)
       read (15,'(a80)') fileout
       open (25,file=fileout,status='unknown')
       write (25,*) ' *** Output file from program UHS_deagg  *** '
-      write (25,*) '              *** Version 45.2 ***           '
+      write (25,*) '              *** Version 45.3 ***           '
       write (25,*) 
       write (25,'(a17,2x,a80)') ' Input filename: ', file1
       write (25,*) 
@@ -88,8 +88,8 @@ c     Specify PSHA Haz45 output files.
 
 C        Check for version compatibility with hazard code
            read (10,*) version
-            if (version .ne. 45.2) then
-            write (*,*) 'out3 from incompatible version of Haz45, use Haz45.2'
+            if (version .ne. 45.3) then
+            write (*,*) 'out3 from incompatible version of Haz45, use Haz45.3'
             stop 99
            endif
 
@@ -289,8 +289,8 @@ c         write (*,'(a40,2x,a80)') 'Opening Haz45 deaggregation ouput file: ', f
 
 C        Check for version compatibility with hazard code
            read (10,*) version
-            if (version .ne. 45.2) then
-            write (*,*) 'out4 from incompatible version of Haz45, use Haz45.2'
+            if (version .ne. 45.3) then
+            write (*,*) 'out4 from incompatible version of Haz45, use Haz45.3'
             stop 99
            endif
          
