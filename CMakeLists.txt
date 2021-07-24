@@ -34,7 +34,7 @@ if (Fortran_COMPILER_NAME MATCHES "gfortran.*")
       set (CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -static")
   endif (STATIC)
   # Optimization flags
-  set (CMAKE_Fortran_FLAGS_RELEASE "-funroll-all-loops -fno-f2c -O3") # -ffpe-trap=invalid,zero,overflow,underflow,denormal -ffpe-summary=none")
+  set (CMAKE_Fortran_FLAGS_RELEASE "-funroll-loops -fno-f2c -O3 -ffpe-summary=none") # -ffpe-trap=invalid,zero,overflow,underflow,denormal")
   set (CMAKE_Fortran_FLAGS_DEBUG   "-fno-f2c -O0 -g")
 elseif (Fortran_COMPILER_NAME MATCHES "ifort.*")
   # ifort (untested)
