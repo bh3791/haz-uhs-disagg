@@ -26,20 +26,20 @@ get_filename_component (Fortran_COMPILER_NAME ${CMAKE_Fortran_COMPILER} NAME)
 if (Fortran_COMPILER_NAME MATCHES "gfortran.*")
   # gfortran
 
-  # Flags required for source formatting
-  set (CMAKE_Fortran_FLAGS "-ffixed-line-length-132 -fno-automatic")
+    # Flags required for source formatting
+  set (CMAKE_Fortran_FLAGS "-ffixed-line-length-132 -fno-f2c")
   # Static compliation
   if (STATIC)
       message("--> Static build.")
       set (CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -static")
   endif (STATIC)
   # Optimization flags
-  set (CMAKE_Fortran_FLAGS_RELEASE "-funroll-loops -fno-f2c -O3 -ffpe-summary=none") # -ffpe-trap=invalid,zero,overflow,underflow,denormal")
-  set (CMAKE_Fortran_FLAGS_DEBUG   "-fno-f2c -O0 -g")
+  set (CMAKE_Fortran_FLAGS_RELEASE "-O3 -ffpe-summary=none -ffast-math -funroll-loops -finline-limit=600 -fstack-arrays") # -ffpe-trap=invalid,zero,overflow,underflow,denormal 
+  set (CMAKE_Fortran_FLAGS_DEBUG   "-O0 -g -std=legacy -fbacktrace -ffree-line-length-0 -fcheck=all -fcheck=bounds -finit-real=nan -Wall -ffpe-trap=invalid,zero,overflow,underflow")
 elseif (Fortran_COMPILER_NAME MATCHES "ifort.*")
   # ifort (untested)
-  set (CMAKE_Fortran_FLAGS_RELEASE "-f77rtl -O3")
-  set (CMAKE_Fortran_FLAGS_DEBUG   "-f77rtl -O0 -g")
+  set (CMAKE_Fortran_FLAGS_RELEASE "-extend-source 132 -warn interfaces -check bounds -threads -c -fixed -assume buffered_io -traceback -static -heap-arrays 10")
+  set (CMAKE_Fortran_FLAGS_DEBUG   "-O0 -g")
 endif (Fortran_COMPILER_NAME MATCHES "gfortran.*")
 
 message ("--> Fortran compiler: " ${Fortran_COMPILER_NAME})
